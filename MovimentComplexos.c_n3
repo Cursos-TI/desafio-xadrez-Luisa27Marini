@@ -1,0 +1,72 @@
+#include <stdio.h>
+
+int main(){
+// Torre - 5 casas para Direita
+void moverTorre(int casas) {
+    if (casas <= 0) return;
+    printf("Direita\n");
+    moverTorre(casas - 1);
+}
+
+// Rainha - 8 casas para Esquerda
+void moverRainha(int casas) {
+    if (casas <= 0) return;
+    printf("Esquerda\n");
+    moverRainha(casas - 1);
+}
+
+// Bispo - 5 casas na diagonal (Cima Direita), com loops aninhados
+void moverBispo(int passos) {
+    if (passos <= 0) return;
+
+    for (int vertical = 0; vertical < 1; vertical++) {
+        for (int horizontal = 0; horizontal < 1; horizontal++) {
+            printf("Cima Direita\n");
+        }
+    }
+
+    moverBispo(passos - 1);
+}
+
+// Cavalo - 2 casas para cima, 1 para direita (L invertido)
+void moverCavalo() {
+    printf("Movimentação do Cavalo:\n");
+
+    int movimentos = 1; // quantidade de movimentos do cavalo em L
+    for (int m = 0; m < movimentos; m++) {
+        int i, j;
+
+        for (i = 0; i < 3; i++) {
+            if (i == 2) break; // faz apenas 2 movimentos verticais (para cima)
+            printf("Cima\n");
+        }
+
+        for (j = 0; j < 2; j++) {
+            if (j == 0) {
+                printf("Direita\n"); // apenas 1 movimento horizontal
+                continue;
+            }
+            break;
+        }
+    }
+}
+
+int main() {
+    // ===== Torre =====
+    printf("Movimentação da Torre:\n");
+    moverTorre(5);
+
+    // ===== Bispo =====
+    printf("\nMovimentação do Bispo:\n");
+    moverBispo(5);
+
+    // ===== Rainha =====
+    printf("\nMovimentação da Rainha:\n");
+    moverRainha(8);
+
+    // ===== Cavalo =====
+    printf("\n");
+    moverCavalo();
+
+    return 0;
+}
