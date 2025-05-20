@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main() {
+    // ===== Movimentação da Torre =====
+    printf("Movimentação da Torre:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Direita\n");
+    }
+
+    // ===== Movimentação do Bispo =====
+    printf("\nMovimentação do Bispo:\n");
+    int j = 0;
+    while (j < 5) {
+        printf("Cima Direita\n");
+        j++;
+    }
+
+    // ===== Movimentação da Rainha =====
+    printf("\nMovimentação da Rainha:\n");
+    int k = 0;
+    do {
+        printf("Esquerda\n");
+        k++;
+    } while (k < 8);
+
+    // ===== Movimentação do Cavalo =====
+    // Requisitos: 2 casas para baixo e 1 para a esquerda
+    printf("\nMovimentação do Cavalo:\n");
+
+    // Loop externo: for (obrigatório)
+    for (int m = 0; m < 1; m++) {  // Apenas 1 movimento em L neste exemplo
+        int n = 0;
+
+        // Loop interno: while (2 movimentos para baixo)
+        while (n < 2) {
+            printf("Baixo\n");
+            n++;
+        }
+
+        // Após descer 2 casas, mover 1 casa para esquerda
+        printf("Esquerda\n");
+    }
+
+    return 0;
+}
